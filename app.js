@@ -39,7 +39,26 @@ app.post("/add", async (req, res) => {
 });
 
 
+// VIEW Volunteers
 
+app.post("/view", async (req, res) => {
+
+    try {
+
+        const data = await VolunteerModel.find();
+
+        res.json(data);
+
+    } catch (error) {
+
+        res.json({
+            status: "error",
+            message: error
+        });
+
+    }
+
+});
 
 app.listen(3000, () => {
 
